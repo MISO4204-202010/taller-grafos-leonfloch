@@ -19,7 +19,7 @@ public class EstrategiaBusquedaDFS implements IEstrategiaBusqueda {
 	 */
 	@Override
 	public boolean existeRuta(IGrafo grafo, String origen, String destino) throws Exception {
-		System.out.print("existeRuta EstrategiaBusquedaDFS");
+		System.out.println("existeRuta EstrategiaBusquedaDFS");
 		return false;
 	}
 
@@ -28,7 +28,7 @@ public class EstrategiaBusquedaDFS implements IEstrategiaBusqueda {
 	 */
 	@Override
 	public List<Nodo> buscarRuta(IGrafo grafo, String origen, String destino) throws Exception {
-		System.out.print("buscarRuta EstrategiaBusquedaDFS");
+		System.out.println("buscarRuta EstrategiaBusquedaDFS");
 		return null;
 	}
 

@@ -22,6 +22,7 @@ public class GrafoNormal implements IGrafo {
 	 */
 	@Override
 	public void addNodo(String nombre) {
+		System.out.println("addNodo GrafoNormal");
 		Nodo nodo = new Nodo();
 		nodo.setNombre(nombre);
 		nodos.add(nodo);
@@ -67,7 +68,11 @@ public class GrafoNormal implements IGrafo {
 	 */
 	@Override
 	public Nodo buscarNodo(String nombre) {
-		// TODO Auto-generated method stub
+		for (Nodo nodo: nodos) {
+			if (nodo.getNombre().equals(nombre)) {
+				return nodo;
+			}
+		}
 		return null;
 	}
 
@@ -91,7 +96,7 @@ public class GrafoNormal implements IGrafo {
 
 	@Override
 	public void addArco(String origen, String destino, int peso) throws Exception {
-		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException();
 		
 	}
 

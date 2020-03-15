@@ -5,6 +5,7 @@ package uniandes.taller.grafo.tipo;
 
 import java.util.List;
 
+import uniandes.taller.grafo.FabricaGrafo;
 import uniandes.taller.grafo.busqueda.IEstrategiaBusqueda;
 
 /**
@@ -22,7 +23,10 @@ public class GrafoDirigido implements IGrafo {
 	 */
 	@Override
 	public void addNodo(String nombre) {
-		// TODO Auto-generated method stub
+		System.out.println("addNodo GrafoDirigido");
+		Nodo nodo = new Nodo();
+		nodo.setNombre(nombre);
+		nodos.add(nodo);
 
 	}
 
@@ -31,8 +35,28 @@ public class GrafoDirigido implements IGrafo {
 	 */
 	@Override
 	public void addArco(String origen, String destino) throws Exception {
-		// TODO Auto-generated method stub
+		Nodo nodoOrigen = buscarNodo(origen);
+		Nodo nodoDestino = buscarNodo(destino);
+		
+		// Origen o destino no encontrado
+		if (nodoOrigen == null) {
+			throw new RuntimeException("Error en la B�squeda: NodoOrigen no encontrado");
+		}
+		if (nodoDestino == null) {
+			throw new RuntimeException("Error en la B�squeda: NodoOrigen no encontrado");
+		}
+		
+		addArco(nodoOrigen, nodoDestino);
 
+	}
+	
+	private void addArco(Nodo nodoOrigen, Nodo nodoDestino)
+	{
+		Arco arco = new Arco();
+		arco.setOrigen(nodoOrigen);
+		arco.setDestino(nodoDestino);
+		arcos.add(arco);
+		nodoOrigen.agregarArco(arco);
 	}
 
 	/* (non-Javadoc)
@@ -40,7 +64,11 @@ public class GrafoDirigido implements IGrafo {
 	 */
 	@Override
 	public Nodo buscarNodo(String nombre) {
-		// TODO Auto-generated method stub
+		for (Nodo nodo: nodos) {
+			if (nodo.getNombre().equals(nombre)) {
+				return nodo;
+			}
+		}
 		return null;
 	}
 
@@ -49,8 +77,8 @@ public class GrafoDirigido implements IGrafo {
 	 */
 	@Override
 	public boolean existeRuta(String origen, String destino) throws Exception {
-		// TODO Auto-generated method stub
-		return false;
+		IEstrategiaBusqueda busqueda = FabricaGrafo.obtenerEstrategiaBusqueda();
+		return busqueda.existeRuta(this, origen, destino);
 	}
 
 	/* (non-Javadoc)
@@ -58,13 +86,13 @@ public class GrafoDirigido implements IGrafo {
 	 */
 	@Override
 	public List<Nodo> buscarRuta(String origen, String destino) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		busqueda = FabricaGrafo.obtenerEstrategiaBusqueda();
+		return busqueda.buscarRuta(this, origen, destino);
 	}
 
 	@Override
 	public void addArco(String origen, String destino, int peso) throws Exception {
-		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException();
 		
 	}
 

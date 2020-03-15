@@ -18,7 +18,7 @@ public class FabricaGrafo {
 	/**
 	 * indica el tipo de grafo que se va a instancia
 	 */
-	private static final String GRAFO_A_CARGAR = "normal";
+	private static final String GRAFO_A_CARGAR = "dirigido";
 	
 	/**
 	 * estrategia de busqueda seleccionada

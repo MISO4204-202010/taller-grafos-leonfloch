@@ -28,7 +28,7 @@ public class EstrategiaBusquedaBFS implements IEstrategiaBusqueda {
 	 */
 	@Override
 	public List<Nodo> buscarRuta(IGrafo grafo, String origen, String destino) throws Exception {
-		System.out.print("buscarRuta EstrategiaBusquedaBFS");
+		System.out.println("buscarRuta EstrategiaBusquedaBFS");
 		return null;
 	}
 
